@@ -1,63 +1,64 @@
-let gameState = "";
+let gameState = "none";
 gameDiv = document.getElementById("gameDiv");
 gameDiv.addEventListener("click", doIntro);
 
-function main(){
+//Main Game Loop
+function main() {
     console.log("game State: " + gameState);
-if (gameState == "intro"){
-    doIntro();
-}
-else if (gameState == "avatarSelect"){
-    doAvatarSelect();
-}
-else if (gameState == "room"){
-    doRoom();
-}
-else if (gameState == "book"){
-    doBook();
-}
-else if (gameState == "computer"){
-    doComputer();
-}
-else if (gameState == "map"){
-    doMap();
-}
-else if (gameState == "finish"){
-    doFinish();
-}
-else if (gameState == "endInfo"){
-    doEndInfo();
-}
+    if (gameState == "intro") {
+        doIntro();
+    } else if (gameState == "avatarSelect") {
+        doAvatarSelect();
+    } else if (gameState == "room") {
+        doRoom();
+    } else if (gameState == "book") {
+        doBook();
+    } else if (gameState == "computer") {
+        doComputer();
+    } else if (gameState == "map") {
+        doMap();
+    } else if (gameState == "finish") {
+        doFinish();
+    } else if (gameState == "endInfo") {
+        doEndInfo();
+    }
 }
 
-function reset(){
+function reset() {
     gameState = "";
 }
 
-function doIntro(){
+function doIntro() {
     console.log("Doing intro");
     gameDiv.style.animationName = "introAnim";
-    gameState="avatarSelect";
+    gameState = "avatarSelect";
 }
-function doAvatarSelect(){
+
+function doAvatarSelect() {
     console.log("Doing Avatar Select");
 }
-function doRoom(){
+
+function doRoom() {
 
 }
-function doBook(){
+
+function doBook() {
 
 }
-function doComputer(){
+
+function doComputer() {
 
 }
-function doMap(){
+
+function doMap() {
 
 }
-function doFinish(){
+
+function doFinish() {
 
 }
-function doEndInfo(){
+
+function doEndInfo() {
 
 }
 
