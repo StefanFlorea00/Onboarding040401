@@ -31,15 +31,22 @@ function reset() {
 function doIntro() {
     console.log("Doing intro");
     gameDiv.style.animationName = "introAnim";
-    gameState = "avatarSelect";
+        gameDiv.addEventListener("animationend", function() {
+                             gameState="room";
+                             });
 }
 
 function doAvatarSelect() {
     console.log("Doing Avatar Select");
+
 }
 
 function doRoom() {
-
+    console.log("Doing room");
+    roomBg = document.getElementById("roomBg");
+    roomBg.style.opacity = 1;
+    roomBg.style.width= 1050;
+    roomBg.style.height= 550;
 }
 
 function doBook() {

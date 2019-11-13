@@ -38,6 +38,7 @@ h1{
 #roomBg{
     height: 550px;
     width: 1050px;
+    opacity: 0;
 }
 
 @keyframes introAnim{
