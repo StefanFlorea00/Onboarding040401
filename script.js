@@ -33,6 +33,8 @@ function doIntro() {
     gameDiv.style.animationName = "introAnim";
         gameDiv.addEventListener("animationend", function() {
                              gameState="room";
+                             console.log("Anim Finished");
+                             doRoom();
                              });
 }
 
