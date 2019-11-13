@@ -1,47 +1,65 @@
-var canvas = document.createElement("canvas");
-var ctx = canvas.getContext("2d");
-canvas.width = 1050;
-canvas.height = 550;
-document.body.insertBefore(canvas, document.body.childNodes[3]);
+let gameState = "";
+gameDiv = document.getElementById("gameDiv");
+gameDiv.addEventListener("click", doIntro);
 
-var bgReady = false;
-var bgImage = new Image();
-bgImage.onload = function () {
-    bgReady = true;
+function main(){
+    console.log("game State: " + gameState);
+if (gameState == "intro"){
+    doIntro();
 }
-bgImage.src = "img/bg.jpg";
-
-var reset = function(){
-
+else if (gameState == "avatarSelect"){
+    doAvatarSelect();
 }
-
-var update = function(modifier) {
-
+else if (gameState == "room"){
+    doRoom();
 }
-
-var render = function () {
-    if (bgReady) {
-        ctx.drawImage(bgImage, 0, 0);
-    }
-
-    ctx.fillStyle = "rgb(250, 250, 250)";
-ctx.font = "24px Helvetica";
-ctx.textAlign = "left";
-ctx.textBaseline = "top";
-ctx.fillText("Daniele: ");
-ctx.fillText("Grigaite: ");
+else if (gameState == "book"){
+    doBook();
+}
+else if (gameState == "computer"){
+    doComputer();
+}
+else if (gameState == "map"){
+    doMap();
+}
+else if (gameState == "finish"){
+    doFinish();
+}
+else if (gameState == "endInfo"){
+    doEndInfo();
+}
 }
 
-
-setInterval(counter, 1000);
-var main = function(){
-    update(0.02);
-    render();
-    requestAnimationFrame(main);
+function reset(){
+    gameState = "";
 }
 
-var w = window;
-requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+function doIntro(){
+    console.log("Doing intro");
+    gameDiv.style.animationName = "introAnim";
+    gameState="avatarSelect";
+}
+function doAvatarSelect(){
+    console.log("Doing Avatar Select");
+}
+function doRoom(){
+
+}
+function doBook(){
+
+}
+function doComputer(){
+
+}
+function doMap(){
+
+}
+function doFinish(){
+
+}
+function doEndInfo(){
+
+}
 
 reset();
 main();
