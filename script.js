@@ -1,6 +1,4 @@
-let gameState = "none";
 gameDiv = document.getElementById("gameDiv");
-gameDiv.addEventListener("click", doIntro);
 
 //Main Game Loop
 function main() {
@@ -42,7 +40,10 @@ charEu = document.getElementById("characterEu");
 charNonEu = document.getElementById("characterNonEu");
 charCustom = document.getElementById("characterCustom");
 
+bookSelect = document.getElementById("bookSelect");
+
 function doAvatarSelect() {
+    gameDiv.removeChild(bookSelect);
     charEu.style.opacity = 1;
     charEu.addEventListener("click", doRoom);
     charNonEu.style.opacity = 1;
@@ -52,20 +53,35 @@ function doAvatarSelect() {
     //    gameDiv.style.backgroundImage='url("img/room-background-01.svg")';
 }
 
-function doRoom() {
-    charEu.removeEventListener("click", doRoom);
-    charEu.style.marginTop=155 + "px";
-    gameDiv.removeChild(document.getElementById("myName"));
-    gameDiv.removeChild(charNonEu);
-    gameDiv.removeChild(charCustom);
-    console.log("Doing room");
-    gameDiv.style.backgroundImage = 'url(img/room-background-01.svg)';
-    charNonEu.style.opacity = 0;
-    charCustom.style.opacity = 0;
+let roomInit = false;
 
-    charEu.addEventListener("keypress", function(event){
-                           const key = event.key;
-                            })
+function doRoom() {
+
+    if (!roomInit) {
+        gameDiv.removeChild(document.getElementById("myName"));
+        gameDiv.removeChild(charNonEu);
+        gameDiv.removeChild(charCustom);
+
+        gameDiv.insertBefore(bookSelect, charEu);
+        bookSelect.addEventListener("click", doBook);
+
+        gameDiv.style.backgroundImage = 'url(img/room-background-01.svg)';
+
+        charEu.removeEventListener("click", doRoom);
+        charEu.style.marginTop = 155 + "px";
+        console.log("Doing room");
+
+        charEu.addEventListener("keypress", function (event) {
+            const key = event.key;
+
+        })
+
+        roomInit = true;
+    } else {
+
+
+
+    }
 }
 
 document.onkeydown = checkKey;
@@ -78,46 +94,40 @@ function checkKey(e) {
     if (e.keyCode == '38') {
 
 
-    }
-    else if (e.keyCode == '40') {
+    } else if (e.keyCode == '40') {
         // down arrow
-    }
-    else if (e.keyCode == '37') {
+    } else if (e.keyCode == '37') {
 
         let posChange = parseInt(charEu.style.marginLeft, 10);
-        if(!posChange){
-            posChange=20;
+        if (!posChange) {
+            posChange = 100;
         }
         posChange -= 10;
         charEu.style.marginLeft = posChange.toString() + "px";
         console.log("press key left");
         console.log(charEu.style.marginLeft);
         console.log(posChange);
+    } else if (e.keyCode == '39') {
+
+        if (parseInt(charEu.style.marginLeft, 10) < 870 || charEu.style.marginLeft == "") {
+            let posChange = parseInt(charEu.style.marginLeft, 10);
+            if (!posChange) {
+                posChange = 100;
+            }
+            posChange += 10;
+            charEu.style.marginLeft = posChange.toString() + "px";
+            console.log("press key left");
+            console.log(charEu.style.marginLeft);
+            console.log(posChange);
         }
-
-
-    }
-    else if (e.keyCode == '39') {
-
-
-        if(charEu.style.marginLeft > 10 && charEu.style.marginLeft < 870) {
-        let posChange = parseInt(charEu.style.marginLeft, 10);
-        if(!posChange){
-            posChange=0;
-        }
-        posChange += 10;
-        charEu.style.marginLeft = posChange.toString() + "px";
-        console.log("press key left");
-        console.log(charEu.style.marginLeft);
-        console.log(posChange);
-        }
-
     }
 
 }
 
 function doBook() {
-
+    console.log("Doing book");
+    gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
+    charEu.style.opacity = 0;
 }
 
 function doComputer() {
@@ -136,5 +146,7 @@ function doEndInfo() {
 
 }
 
+let gameState = "intro";
 reset();
+gameState = "intro";
 main();
