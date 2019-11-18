@@ -21,7 +21,8 @@ h1{
     border-color: black;
     background-color: black;
     animation-name: "";
-    animation-duration: 5s;
+    animation-duration: 3s;
+
 }
 
 .footer {
@@ -35,17 +36,79 @@ h1{
     color: aliceblue;
 }
 
+
+#introPic{
+    display: inline-block;
+
+}
+
+#chooseCharTxt{
+    display:inline-block;
+    text-align: center;
+    margin-left: 40%;
+}
+
 #roomBg{
     height: 550px;
     width: 1050px;
+    opacity: 1;
+}
+
+#myNameTxt{
+    display: inline-block;
+    text-align: center;
+    margin-left: 35%;
+
+}
+
+#characterEu{
+    display: inline-block;
+    float: left;
+    margin-top: 50px;
+    margin-left: 100px;
+        opacity: 0;
+}
+
+
+#characterNonEu{
+        display: inline-block;
+    float: left;
+    margin-top: 50px;
+    margin-left: 150px;
     opacity: 0;
+}
+
+#characterCustom{
+        display: inline-block;
+    float: left;
+    margin-top: 50px;
+    margin-left: 150px;
+        opacity: 0;
+}
+
+#myNameInput{
+    display:inline-block;
+    margin-top:16px;
+    background-color:rgba(0, 0, 0, 0);
+    color:white;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid lightgrey;
+    border-color: black;
+    height:30px;
+    transition:height 1s;
+    -webkit-transition:height 1s;
+    height: 20px;
 }
 
 @keyframes introAnim{
     from{
-        background-color: black;
+        opacity:0.0;
+        background-image: url(img/introPic.png);
+
     }
     to {
-        background-color: white;
+        opacity:1.0;
+                background-image: url(img/introPic.png);
     }
 }
