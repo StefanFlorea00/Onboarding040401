@@ -35,8 +35,8 @@ function doIntro() {
         doAvatarSelect();
     });
 
-    gameDiv.removeChild(document.getElementById("booktextp1"));
-    gameDiv.removeChild(document.getElementById("booktextp2"));
+    document.getElementById("booktextp1").style.opacity = 0;
+    document.getElementById("booktextp2").style.opacity = 0;
 }
 
 charEu = document.getElementById("characterEu");
@@ -103,6 +103,9 @@ function doRoom() {
         computerSelect.addEventListener("click", doComputer);
         mapSelect.addEventListener("click", doMap);
         outsideRoom = false;
+
+                document.getElementById("booktextp1").style.opacity = 0;
+    document.getElementById("booktextp2").style.opacity = 0;
     }
 
 }
@@ -195,8 +198,9 @@ function doBook() {
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
-    gameDiv.insertBefore(document.getElementById("booktextp1"), document.getElementById("backArrow"));
-    gameDiv.insertBefore(document.getElementById("booktextp2"), document.getElementById("backArrow"));
+
+        document.getElementById("booktextp1").style.opacity = 1;
+    document.getElementById("booktextp2").style.opacity = 1;
 
     outsideRoom = true;
 }
