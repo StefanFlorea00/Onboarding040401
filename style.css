@@ -153,6 +153,19 @@ h1{
     float:left;
 }
 
+#mapSelect{
+    display: inline-block;
+    width: 270px;
+    height: 210px;
+    white-space: nowrap;
+    margin-left: 100px;
+    margin-top: 330px;
+    overflow:hidden;
+    position: fixed;
+    z-index: 3;
+    float:left;
+}
+
 #backArrow{
     opacity: 0;
     display: inline-block;

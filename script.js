@@ -42,10 +42,12 @@ charCustom = document.getElementById("characterCustom");
 
 bookSelect = document.getElementById("bookSelect");
 computerSelect = document.getElementById("computerSelect");
+mapSelect = document.getElementById("mapSelect");
 
 function doAvatarSelect() {
     gameDiv.removeChild(bookSelect);
     gameDiv.removeChild(computerSelect);
+    gameDiv.removeChild(mapSelect);
     charEu.style.opacity = 1;
     charEu.addEventListener("click", doRoom);
     charNonEu.style.opacity = 1;
@@ -55,6 +57,7 @@ function doAvatarSelect() {
 }
 
 let roomInit = false;
+let outsideRoom = false;
 
 function doRoom() {
 
@@ -69,6 +72,9 @@ function doRoom() {
         gameDiv.insertBefore(computerSelect, bookSelect);
         computerSelect.addEventListener("click", doComputer);
 
+        gameDiv.insertBefore(mapSelect, computerSelect);
+        mapSelect.addEventListener("click", doMap);
+
         gameDiv.style.backgroundImage = 'url(img/room-background-01.png)';
 
         charEu.removeEventListener("click", doRoom);
@@ -78,6 +84,7 @@ function doRoom() {
         charEu.addEventListener("keypress", function (event) {
             const key = event.key;
 
+        outsideRoom = false;
         })
 
         roomInit = true;
@@ -89,7 +96,8 @@ function doRoom() {
 
         bookSelect.addEventListener("click", doBook);
         computerSelect.addEventListener("click", doComputer);
-
+        mapSelect.addEventListener("click", doMap);
+        outsideRoom = false;
     }
 
 }
@@ -101,6 +109,7 @@ function checkKey(e) {
 
     e = e || window.event;
 
+    if (!outsideRoom) {
     if (e.keyCode == '38') {
 
 
@@ -136,25 +145,26 @@ function checkKey(e) {
         glowItems();
     }
 
+    }
 }
 
 function glowItems() {
     if ((parseInt(charEu.style.marginLeft, 10) > 300) && (parseInt(charEu.style.marginLeft, 10) < 530)) {
-        bookSelect.style.boxShadow = '0 0 100px 60px #f0f';
+        bookSelect.style.boxShadow = '0 0 100px 60px #ffff00';
         console.log("Glow bookselect");
     } else {
         bookSelect.style.boxShadow = '0 0 0 0 #f0f';
     }
 
-    if ((parseInt(charEu.style.marginLeft, 10) > 300) && (parseInt(charEu.style.marginLeft, 10) < 530)) {
-        bookSelect.style.boxShadow = '0 0 100px 60px #f0f';
-        console.log("Glow bookselect");
+    if ((parseInt(charEu.style.marginLeft, 10) > 0) && (parseInt(charEu.style.marginLeft, 10) < 200)) {
+        mapSelect.style.boxShadow = '0 0 100px 60px #ffff00';
+        console.log("Glow mapselect");
     } else {
-        bookSelect.style.boxShadow = '0 0 0 0 #f0f';
+        mapSelect.style.boxShadow = '0 0 0 0 #f0f';
     }
 
     if ((parseInt(charEu.style.marginLeft, 10) > 570) && (parseInt(charEu.style.marginLeft, 10) < 850)) {
-        computerSelect.style.boxShadow = '0 0 100px 60px #f0f';
+        computerSelect.style.boxShadow = '0 0 100px 60px #ffff00';
         console.log("Glow computerselect");
     } else {
         computerSelect.style.boxShadow = '0 0 0 0 #f0f';
@@ -165,26 +175,52 @@ function doBook() {
     console.log("Doing book");
     gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
     charEu.style.opacity = 0;
+    charEu.style.marginLeft = 150 + "px";
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
 
     bookSelect.removeEventListener("click", doBook);
+    bookSelect.style.boxShadow = '0 0 0 0 #ffff00';
+
     computerSelect.removeEventListener("click", doComputer);
+    computerSelect.style.boxShadow = '0 0 0 0';
+
+    outsideRoom = true;
 }
 
 function doComputer() {
     console.log("Doing computer");
-    gameDiv.style.backgroundImage = 'url(img/)';
+    gameDiv.style.backgroundImage = 'url(img/laptop-3-01.svg)';
     charEu.style.opacity = 0;
+    charEu.style.marginLeft = 150 + "px";
+    document.getElementById("backArrow").style.opacity = 1;
+    document.getElementById("backArrow").addEventListener("click", doRoom);
+
+    bookSelect.removeEventListener("click", doBook);
+    bookSelect.style.boxShadow = '0 0 0 0 #ffff00';
+
+    computerSelect.removeEventListener("click", doComputer);
+    computerSelect.style.boxShadow = '0 0 0 0';
+
+    outsideRoom = true;
+
+}
+
+function doMap() {
+    console.log("Doing map");
+    gameDiv.style.backgroundImage = 'url(img/map.png)';
+    charEu.style.opacity = 0;
+    charEu.style.marginLeft = 150 + "px";
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
 
     bookSelect.removeEventListener("click", doBook);
     computerSelect.removeEventListener("click", doComputer);
-}
+    mapSelect.removeEventListener("click", doMap);
 
-function doMap() {
+    mapSelect.style.boxShadow = '0 0 0 0 #f0f';
 
+    outsideRoom = true;
 }
 
 function doFinish() {
