@@ -34,6 +34,9 @@ function doIntro() {
         console.log("Anim Finished");
         doAvatarSelect();
     });
+
+    gameDiv.removeChild(document.getElementById("booktextp1"));
+    gameDiv.removeChild(document.getElementById("booktextp2"));
 }
 
 charEu = document.getElementById("characterEu");
@@ -192,6 +195,8 @@ function doBook() {
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
+    gameDiv.insertBefore(document.getElementById("booktextp1"), document.getElementById("backArrow"));
+    gameDiv.insertBefore(document.getElementById("booktextp2"), document.getElementById("backArrow"));
 
     outsideRoom = true;
 }
@@ -242,15 +247,6 @@ function doFinish() {
 }
 
 function doEndInfo() {
-
-}
-
-badButton = document.getElementById("badbutton");
-badButton.addEventListener("click", changeColor);
-
-function changeColor() {
-    this.style.backgroundColor = "red";
-
 
 }
 

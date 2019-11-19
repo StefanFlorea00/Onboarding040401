@@ -117,12 +117,12 @@ h1{
     float:left;
     z-index: 0;
 }
-#booktext{
+#booktextp1{
     display: inline-block;
     width: 379px;
     height: 480px;
     margin-left: 100px;
-    margin-top: 52px;
+    margin-top: 32px;
     overflow:hidden;
     position: fixed;
     float:left;
@@ -130,10 +130,10 @@ h1{
 }
 #booktextp2{
     display: inline-block;
-    width: 676px;
-    height: 880px;
-    margin-left: 200px;
-    margin-top: 72px;
+    width: 379px;
+    height: 480px;
+    margin-left: 570px;
+    margin-top: 32px;
     overflow:hidden;
     position: fixed;
     float:left;
