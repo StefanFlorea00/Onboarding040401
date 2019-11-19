@@ -147,11 +147,39 @@ h1{
 #backArrow{
     opacity: 0;
     display: inline-block;
-    position: absolute;
+    white-space: nowrap;
+    margin-left: 0px;
+    margin-top: 0px;
+    overflow:hidden;
+    position: fixed;
+    z-index: 3;
+    float:left;
+}
+
+#nextArrow{
+    opacity: 0;
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 950px;
+    margin-top: 470px;
+    width: 50px;
+    transform: rotate(180deg);
+    overflow:hidden;
+    position: fixed;
+    z-index: 3;
+    float:left;
+}
+
+#prevArrow{
+    opacity: 0;
+    display: inline-block;
+    position: fixed;
     float:left;
     white-space: nowrap;
     overflow: hidden;
-    margin: 0;
+    margin-left: 50px;
+    margin-top: 470px;
+    width: 50px;
     z-index: 4;
 }
 

@@ -93,6 +93,8 @@ function doRoom() {
         charEu.style.opacity = 1;
         gameDiv.style.backgroundImage = 'url(img/room-background-01.png)';
         document.getElementById("backArrow").style.opacity = 0;
+                document.getElementById("nextArrow").style.opacity = 0;
+                document.getElementById("prevArrow").style.opacity = 0;
 
         bookSelect.addEventListener("click", doBook);
         computerSelect.addEventListener("click", doComputer);
@@ -175,9 +177,14 @@ function doBook() {
     console.log("Doing book");
     gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
     charEu.style.opacity = 0;
-    charEu.style.marginLeft = 150 + "px";
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
+
+        document.getElementById("prevArrow").style.opacity = 1;
+    document.getElementById("prevArrow").addEventListener("click", pagePrev);
+
+        document.getElementById("nextArrow").style.opacity = 1;
+    document.getElementById("nextArrow").addEventListener("click", pageNext);
 
     bookSelect.removeEventListener("click", doBook);
     bookSelect.style.boxShadow = '0 0 0 0 #ffff00';
@@ -192,7 +199,6 @@ function doComputer() {
     console.log("Doing computer");
     gameDiv.style.backgroundImage = 'url(img/laptop-3-01.svg)';
     charEu.style.opacity = 0;
-    charEu.style.marginLeft = 150 + "px";
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
 
@@ -210,7 +216,6 @@ function doMap() {
     console.log("Doing map");
     gameDiv.style.backgroundImage = 'url(img/map.png)';
     charEu.style.opacity = 0;
-    charEu.style.marginLeft = 150 + "px";
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
 
