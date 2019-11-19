@@ -78,9 +78,10 @@ function doRoom() {
 
         roomInit = true;
     } else {
-
-
-
+        console.log("Doing room");
+        charEu.style.opacity = 1;
+        gameDiv.style.backgroundImage = 'url(img/room-background-01.svg)';
+        document.getElementById("backArrow").style.opacity = 0;
     }
 }
 
@@ -128,6 +129,8 @@ function doBook() {
     console.log("Doing book");
     gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
     charEu.style.opacity = 0;
+    document.getElementById("backArrow").style.opacity = 1;
+    document.getElementById("backArrow").addEventListener("click", doRoom);
 }
 
 function doComputer() {
@@ -145,6 +148,16 @@ function doFinish() {
 function doEndInfo() {
 
 }
+
+badButton = document.getElementById("badbutton");
+badButton.addEventListener("click", changeColor);
+
+function changeColor(){
+    this.style.backgroundColor="red";
+
+
+}
+
 
 let gameState = "intro";
 reset();

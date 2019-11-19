@@ -116,8 +116,15 @@ h1{
     float:left;
 }
 
-#backButton{
-
+#backArrow{
+    opacity: 0;
+    display: inline-block;
+    position: absolute;
+    float:left;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+    z-index: 4;
 }
 
 @keyframes introAnim{
