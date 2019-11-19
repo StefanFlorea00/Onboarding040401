@@ -34,6 +34,9 @@ function doIntro() {
         console.log("Anim Finished");
         doAvatarSelect();
     });
+
+    gameDiv.removeChild(document.getElementById("booktextp1"));
+    gameDiv.removeChild(document.getElementById("booktextp2"));
 }
 
 charEu = document.getElementById("characterEu");
@@ -84,7 +87,7 @@ function doRoom() {
         charEu.addEventListener("keypress", function (event) {
             const key = event.key;
 
-        outsideRoom = false;
+            outsideRoom = false;
         })
 
         roomInit = true;
@@ -93,6 +96,8 @@ function doRoom() {
         charEu.style.opacity = 1;
         gameDiv.style.backgroundImage = 'url(img/room-background-01.png)';
         document.getElementById("backArrow").style.opacity = 0;
+        document.getElementById("nextArrow").style.opacity = 0;
+        document.getElementById("prevArrow").style.opacity = 0;
 
         bookSelect.addEventListener("click", doBook);
         computerSelect.addEventListener("click", doComputer);
@@ -110,40 +115,40 @@ function checkKey(e) {
     e = e || window.event;
 
     if (!outsideRoom) {
-    if (e.keyCode == '38') {
+        if (e.keyCode == '38') {
 
 
-    } else if (e.keyCode == '40') {
-        // down arrow
-    } else if (e.keyCode == '37') {
+        } else if (e.keyCode == '40') {
+            // down arrow
+        } else if (e.keyCode == '37') {
 
-        let posChange = parseInt(charEu.style.marginLeft, 10);
-        if (!posChange) {
-            posChange = 100;
-        }
-        posChange -= 10;
-        charEu.style.marginLeft = posChange.toString() + "px";
-        console.log("press key left");
-        console.log(charEu.style.marginLeft);
-        console.log(posChange);
-
-        glowItems();
-    } else if (e.keyCode == '39') {
-
-        if (parseInt(charEu.style.marginLeft, 10) < 870 || charEu.style.marginLeft == "") {
             let posChange = parseInt(charEu.style.marginLeft, 10);
             if (!posChange) {
                 posChange = 100;
             }
-            posChange += 10;
+            posChange -= 10;
             charEu.style.marginLeft = posChange.toString() + "px";
-            console.log("press key right");
+            console.log("press key left");
             console.log(charEu.style.marginLeft);
             console.log(posChange);
-        }
 
-        glowItems();
-    }
+            glowItems();
+        } else if (e.keyCode == '39') {
+
+            if (parseInt(charEu.style.marginLeft, 10) < 870 || charEu.style.marginLeft == "") {
+                let posChange = parseInt(charEu.style.marginLeft, 10);
+                if (!posChange) {
+                    posChange = 100;
+                }
+                posChange += 10;
+                charEu.style.marginLeft = posChange.toString() + "px";
+                console.log("press key right");
+                console.log(charEu.style.marginLeft);
+                console.log(posChange);
+            }
+
+            glowItems();
+        }
 
     }
 }
@@ -175,24 +180,39 @@ function doBook() {
     console.log("Doing book");
     gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
     charEu.style.opacity = 0;
-    charEu.style.marginLeft = 150 + "px";
+
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
+
+    document.getElementById("prevArrow").style.opacity = 1;
+    document.getElementById("prevArrow").addEventListener("click", pagePrev);
+
+    document.getElementById("nextArrow").style.opacity = 1;
+    document.getElementById("nextArrow").addEventListener("click", pageNext);
 
     bookSelect.removeEventListener("click", doBook);
     bookSelect.style.boxShadow = '0 0 0 0 #ffff00';
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
+    gameDiv.insertBefore(document.getElementById("booktextp1"), document.getElementById("backArrow"));
+    gameDiv.insertBefore(document.getElementById("booktextp2"), document.getElementById("backArrow"));
 
     outsideRoom = true;
+}
+
+function pagePrev(){
+
+}
+
+function pageNext(){
+
 }
 
 function doComputer() {
     console.log("Doing computer");
     gameDiv.style.backgroundImage = 'url(img/laptop-3-01.svg)';
     charEu.style.opacity = 0;
-    charEu.style.marginLeft = 150 + "px";
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
 
@@ -210,7 +230,6 @@ function doMap() {
     console.log("Doing map");
     gameDiv.style.backgroundImage = 'url(img/map.png)';
     charEu.style.opacity = 0;
-    charEu.style.marginLeft = 150 + "px";
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
 
@@ -228,15 +247,6 @@ function doFinish() {
 }
 
 function doEndInfo() {
-
-}
-
-badButton = document.getElementById("badbutton");
-badButton.addEventListener("click", changeColor);
-
-function changeColor() {
-    this.style.backgroundColor = "red";
-
 
 }
 

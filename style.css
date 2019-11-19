@@ -117,12 +117,12 @@ h1{
     float:left;
     z-index: 0;
 }
-#booktext{
+#booktextp1{
     display: inline-block;
     width: 379px;
     height: 480px;
     margin-left: 100px;
-    margin-top: 52px;
+    margin-top: 32px;
     overflow:hidden;
     position: fixed;
     float:left;
@@ -130,10 +130,10 @@ h1{
 }
 #booktextp2{
     display: inline-block;
-    width: 676px;
-    height: 880px;
-    margin-left: 200px;
-    margin-top: 72px;
+    width: 379px;
+    height: 480px;
+    margin-left: 570px;
+    margin-top: 32px;
     overflow:hidden;
     position: fixed;
     float:left;
@@ -180,11 +180,38 @@ h1{
 #backArrow{
     opacity: 0;
     display: inline-block;
-    position: absolute;
+    white-space: nowrap;
+    margin-left: 0px;
+    margin-top: 0px;
+    overflow:hidden;
+    position: fixed;
+    z-index: 3;
+    float:left;
+}
+
+#nextArrow{
+    opacity: 0;
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 950px;
+    margin-top: 470px;
+    width: 50px;
+    transform: rotate(180deg);
+    overflow:hidden;
+    position: fixed;
+    float:left;
+}
+
+#prevArrow{
+    opacity: 0;
+    display: inline-block;
+    position: fixed;
     float:left;
     white-space: nowrap;
     overflow: hidden;
-    margin: 0;
+    margin-left: 50px;
+    margin-top: 470px;
+    width: 50px;
     z-index: 4;
 }
 
