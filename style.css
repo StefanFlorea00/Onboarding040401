@@ -141,10 +141,10 @@ h1{
 }
 #laptoptext{
     display: inline-block;
-    width: 676px;
+    width: 688px;
     height: 880px;
-    margin-left: 200px;
-    margin-top: 72px;
+    margin-left: 214px;
+    margin-top: 32px;
     overflow:hidden;
     position: fixed;
     float:left;
