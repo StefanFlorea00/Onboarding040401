@@ -139,6 +139,17 @@ h1{
     float:left;
     z-index: 0;
 }
+#laptoptext{
+    display: inline-block;
+    width: 676px;
+    height: 880px;
+    margin-left: 200px;
+    margin-top: 72px;
+    overflow:hidden;
+    position: fixed;
+    float:left;
+    z-index: 0;
+}
 
 #computerSelect{
     display: inline-block;
