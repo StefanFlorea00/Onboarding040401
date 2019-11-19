@@ -41,16 +41,18 @@ charNonEu = document.getElementById("characterNonEu");
 charCustom = document.getElementById("characterCustom");
 
 bookSelect = document.getElementById("bookSelect");
+computerSelect = document.getElementById("computerSelect");
 
 function doAvatarSelect() {
     gameDiv.removeChild(bookSelect);
+    gameDiv.removeChild(computerSelect);
     charEu.style.opacity = 1;
     charEu.addEventListener("click", doRoom);
     charNonEu.style.opacity = 1;
     charCustom.style.opacity = 1;
     console.log("Doing Avatar Select");
     gameDiv.style.backgroundColor = "blue";
-    //    gameDiv.style.backgroundImage='url("img/room-background-01.svg")';
+    //    gameDiv.style.backgroundImage='url("img/room-background-01.png")';
 }
 
 let roomInit = false;
@@ -65,7 +67,10 @@ function doRoom() {
         gameDiv.insertBefore(bookSelect, charEu);
         bookSelect.addEventListener("click", doBook);
 
-        gameDiv.style.backgroundImage = 'url(img/room-background-01.svg)';
+        gameDiv.insertBefore(computerSelect, bookSelect);
+        computerSelect.addEventListener("click", doComputer);
+
+        gameDiv.style.backgroundImage = 'url(img/room-background-01.png)';
 
         charEu.removeEventListener("click", doRoom);
         charEu.style.marginTop = 155 + "px";
@@ -80,9 +85,14 @@ function doRoom() {
     } else {
         console.log("Doing room");
         charEu.style.opacity = 1;
-        gameDiv.style.backgroundImage = 'url(img/room-background-01.svg)';
+        gameDiv.style.backgroundImage = 'url(img/room-background-01.png)';
         document.getElementById("backArrow").style.opacity = 0;
+
+        bookSelect.addEventListener("click", doBook);
+        computerSelect.addEventListener("click", doComputer);
+
     }
+
 }
 
 document.onkeydown = checkKey;
@@ -108,6 +118,8 @@ function checkKey(e) {
         console.log("press key left");
         console.log(charEu.style.marginLeft);
         console.log(posChange);
+
+        glowItems();
     } else if (e.keyCode == '39') {
 
         if (parseInt(charEu.style.marginLeft, 10) < 870 || charEu.style.marginLeft == "") {
@@ -117,12 +129,37 @@ function checkKey(e) {
             }
             posChange += 10;
             charEu.style.marginLeft = posChange.toString() + "px";
-            console.log("press key left");
+            console.log("press key right");
             console.log(charEu.style.marginLeft);
             console.log(posChange);
         }
+
+        glowItems();
     }
 
+}
+
+function glowItems() {
+    if ((parseInt(charEu.style.marginLeft, 10) > 300) && (parseInt(charEu.style.marginLeft, 10) < 530)) {
+        bookSelect.style.boxShadow = '0 0 100px 60px #f0f';
+        console.log("Glow bookselect");
+    } else {
+        bookSelect.style.boxShadow = '0 0 0 0 #f0f';
+    }
+
+    if ((parseInt(charEu.style.marginLeft, 10) > 300) && (parseInt(charEu.style.marginLeft, 10) < 530)) {
+        bookSelect.style.boxShadow = '0 0 100px 60px #f0f';
+        console.log("Glow bookselect");
+    } else {
+        bookSelect.style.boxShadow = '0 0 0 0 #f0f';
+    }
+
+    if ((parseInt(charEu.style.marginLeft, 10) > 570) && (parseInt(charEu.style.marginLeft, 10) < 850)) {
+        computerSelect.style.boxShadow = '0 0 100px 60px #f0f';
+        console.log("Glow computerselect");
+    } else {
+        computerSelect.style.boxShadow = '0 0 0 0 #f0f';
+    }
 }
 
 function doBook() {
@@ -131,10 +168,20 @@ function doBook() {
     charEu.style.opacity = 0;
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
+
+    bookSelect.removeEventListener("click", doBook);
+    computerSelect.removeEventListener("click", doComputer);
 }
 
 function doComputer() {
+    console.log("Doing computer");
+    gameDiv.style.backgroundImage = 'url(img/)';
+    charEu.style.opacity = 0;
+    document.getElementById("backArrow").style.opacity = 1;
+    document.getElementById("backArrow").addEventListener("click", doRoom);
 
+    bookSelect.removeEventListener("click", doBook);
+    computerSelect.removeEventListener("click", doComputer);
 }
 
 function doMap() {
@@ -152,8 +199,8 @@ function doEndInfo() {
 badButton = document.getElementById("badbutton");
 badButton.addEventListener("click", changeColor);
 
-function changeColor(){
-    this.style.backgroundColor="red";
+function changeColor() {
+    this.style.backgroundColor = "red";
 
 
 }
