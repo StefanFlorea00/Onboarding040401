@@ -37,6 +37,7 @@ function doIntro() {
 
     document.getElementById("booktextp1").style.opacity = 0;
     document.getElementById("booktextp2").style.opacity = 0;
+    document.getElementById("laptoptext").style.opacity = 0;
 }
 
 charEu = document.getElementById("characterEu");
@@ -104,8 +105,9 @@ function doRoom() {
         mapSelect.addEventListener("click", doMap);
         outsideRoom = false;
 
-                document.getElementById("booktextp1").style.opacity = 0;
-    document.getElementById("booktextp2").style.opacity = 0;
+        document.getElementById("booktextp1").style.opacity = 0;
+        document.getElementById("booktextp2").style.opacity = 0;
+        document.getElementById("laptoptext").style.opacity = 0;
     }
 
 }
@@ -179,38 +181,67 @@ function glowItems() {
     }
 }
 
+let bookPages = 0;
+
 function doBook() {
-    console.log("Doing book");
+    console.log("Doing book, page " + bookPages );
     gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
     charEu.style.opacity = 0;
 
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
 
-    document.getElementById("prevArrow").style.opacity = 1;
-    document.getElementById("prevArrow").addEventListener("click", pagePrev);
-
-    document.getElementById("nextArrow").style.opacity = 1;
-    document.getElementById("nextArrow").addEventListener("click", pageNext);
 
     bookSelect.removeEventListener("click", doBook);
     bookSelect.style.boxShadow = '0 0 0 0 #ffff00';
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
+    document.getElementById("prevArrow").addEventListener("click", pagePrev);
+    document.getElementById("nextArrow").addEventListener("click", pageNext);
 
         document.getElementById("booktextp1").style.opacity = 1;
-    document.getElementById("booktextp2").style.opacity = 1;
+        document.getElementById("booktextp2").style.opacity = 1;
 
     outsideRoom = true;
 }
 
-function pagePrev(){
+function pagePrev() {
+    gameDiv.style.backgroundPositionX = -1050 + "px";
+    setTimeout(function () {
+        gameDiv.style.backgroundPositionX = 0 + "px";
+        console.log("Changed page, bgposX " + gameDiv.style.backgroundPositionX + " bookpage:" + bookPages);
 
+    }, 1000);
+    bookPages--;
+    changeBookText();
 }
 
-function pageNext(){
+function pageNext() {
+    gameDiv.style.backgroundPositionX = -1050 + "px";
+    setTimeout(function () {
+        gameDiv.style.backgroundPositionX = -2100 + "px";
+        console.log("Changed page, bgposX " + gameDiv.style.backgroundPositionX + " bookpage:" + bookPages);
 
+    }, 1000);
+        bookPages++;
+    changeBookText();
+}
+
+function changeBookText() {
+    if (bookPages == 0) {
+        console.log("Show text");
+        document.getElementById("prevArrow").style.opacity = 1;
+        document.getElementById("nextArrow").style.opacity = 1;
+
+        document.getElementById("booktextp1").style.opacity = 1;
+        document.getElementById("booktextp2").style.opacity = 1;
+    } else {
+                console.log("Hide text");
+
+                document.getElementById("booktextp1").style.opacity = 0;
+        document.getElementById("booktextp2").style.opacity = 0;
+    }
 }
 
 function doComputer() {
@@ -225,6 +256,8 @@ function doComputer() {
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
+
+    document.getElementById("laptoptext").style.opacity = 1;
 
     outsideRoom = true;
 
