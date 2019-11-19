@@ -166,7 +166,6 @@ h1{
     transform: rotate(180deg);
     overflow:hidden;
     position: fixed;
-    z-index: 3;
     float:left;
 }
 
