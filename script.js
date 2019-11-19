@@ -107,6 +107,7 @@ function doRoom() {
 
         document.getElementById("booktextp1").style.opacity = 0;
         document.getElementById("booktextp2").style.opacity = 0;
+        document.getElementById("laptoptext").style.opacity = 0;
     }
 
 }
@@ -255,6 +256,8 @@ function doComputer() {
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
+
+    document.getElementById("laptoptext").style.opacity = 1;
 
     outsideRoom = true;
 
