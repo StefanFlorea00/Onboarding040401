@@ -49,7 +49,7 @@ function doAvatarSelect() {
     charNonEu.style.opacity = 1;
     charCustom.style.opacity = 1;
     console.log("Doing Avatar Select");
-    gameDiv.style.backgroundColor = "blue";
+    gameDiv.style.backgroundColor = "#E8B466";
     //    gameDiv.style.backgroundImage='url("img/room-background-01.svg")';
 }
 
