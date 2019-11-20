@@ -56,6 +56,9 @@ h1{
 
 #myName{
     opacity: 0;
+    font-family: Helvetica;
+
+
 }
 
 #myNameTxt{
@@ -63,6 +66,7 @@ h1{
     text-align: center;
     margin-left: 35%;
     cursor: default;
+
 }
 
 #characterEu{
@@ -77,6 +81,9 @@ h1{
     z-index: 10;
 }
 
+#characterEu:hover{
+    box-shadow : 0 0 100px 60px #ffff00;
+}
 
 #characterNonEu{
         display: inline-block;

@@ -75,6 +75,7 @@ function doAvatarSelect() {
     gameDiv.removeChild(mapSelect);
     charEu.style.opacity = 1;
     charEu.addEventListener("click", doRoom);
+
     charNonEu.style.opacity = 1;
     charCustom.style.opacity = 1;
     console.log("Doing Avatar Select");
@@ -88,6 +89,8 @@ let allBadges = false;
 function doRoom() {
 
     if (!roomInit) {
+
+        charEu.style.boxShadow = '0 0 0 0 #ffff00';
 
         badgeDiv.style.opacity = 1;
 
@@ -236,7 +239,7 @@ function doBook() {
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
 
-    document.getElementById("prevArrow").style.opacity = 1;
+    document.getElementById("prevArrow").style.opacity = 0;
     document.getElementById("nextArrow").style.opacity = 1;
     document.getElementById("prevArrow").addEventListener("click", pagePrev);
     document.getElementById("nextArrow").addEventListener("click", pageNext);
@@ -271,6 +274,12 @@ function pageNext() {
 
 function changeBookText() {
     if (bookPages == 0) {
+        document.getElementById("prevArrow").style.opacity = 0;
+        document.getElementById("prevArrow").removeEventListener("click",pagePrev);
+        document.getElementById("nextArrow").style.opacity = 1;
+        document.getElementById("nextArrow").addEventListener("click",pageNext);
+
+
         console.log("Show text");
         document.getElementById("booktextp1").style.opacity = 1;
         document.getElementById("booktextp2").style.opacity = 1;
@@ -278,8 +287,11 @@ function changeBookText() {
         document.getElementById("booktextp4").style.opacity = 0;
 
     } else if (bookPages == 1) {
-         document.getElementById("prevArrow").style.opacity = 1;
+        document.getElementById("prevArrow").style.opacity = 1;
+        document.getElementById("prevArrow").addEventListener("click",pagePrev);
         document.getElementById("nextArrow").style.opacity = 0;
+        document.getElementById("nextArrow").removeEventListener("click",pageNext);
+
 
         document.getElementById("booktextp3").style.opacity = 1;
         document.getElementById("booktextp4").style.opacity = 1;
