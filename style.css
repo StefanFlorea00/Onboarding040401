@@ -309,6 +309,19 @@ h1{
     float:left;
 }
 
+#finishArrow{
+    opacity: 0;
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 950px;
+    margin-top: 120px;
+    width: 70px;
+    transform: rotate(180deg);
+    overflow:hidden;
+    position: fixed;
+    float:left;
+}
+
 #prevArrow{
     opacity: 0;
     display: inline-block;

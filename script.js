@@ -83,6 +83,7 @@ function doAvatarSelect() {
 
 let roomInit = false;
 let outsideRoom = false;
+let allBadges = false;
 
 function doRoom() {
 
@@ -139,9 +140,8 @@ function doRoom() {
         document.getElementById("laptoptext").style.opacity = 0;
 
         if(bookBadge.style.opacity == 1 && laptopBadge.style.opacity == 1 && mapBadge.style.opacity == 1 ) {
-            doFinish();
-
-
+            document.getElementById("finishArrow").style.opacity = 1;
+            allBadges = true;
         }
     }
 
@@ -168,9 +168,7 @@ function checkKey(e) {
             }
             posChange -= 10;
             charEu.style.marginLeft = posChange.toString() + "px";
-            console.log("press key left");
-            console.log(charEu.style.marginLeft);
-            console.log(posChange);
+            console.log("press key left " + charEu.style.marginLeft);
 
             glowItems();
         } else if (e.keyCode == '39') {
@@ -182,9 +180,11 @@ function checkKey(e) {
                 }
                 posChange += 10;
                 charEu.style.marginLeft = posChange.toString() + "px";
-                console.log("press key right");
-                console.log(charEu.style.marginLeft);
-                console.log(posChange);
+                console.log("press key right " + charEu.style.marginLeft);
+
+                if(allBadges && parseInt(charEu.style.marginLeft, 10) > 850){
+                    doFinish();
+                }
             }
 
             glowItems();
@@ -344,11 +344,14 @@ function doFinish() {
     gameDiv.removeChild(computerSelect);
     gameDiv.removeChild(badgeDiv);
     gameDiv.removeChild(charEu);
+    gameDiv.removeChild(document.getElementById("finishArrow"));
     gameDiv.style.backgroundImage = 'url(img/congratulation-page-1-01.svg)';
+    setTimeout(doEndInfo, 3000);
+
 
 }
 
 function doEndInfo() {
-
+    gameDiv.style.backgroundImage = '';
 }
 
