@@ -29,6 +29,9 @@ function main() {
 }
 
 function reset() {
+        document.getElementById("Keabtn").disabled = true;
+    document.getElementById("intBtn").disabled = true;
+    document.getElementById("bankBtn").disabled = true;
     document.getElementById("tutorial").style.opacity =  0;
     gameState = "intro";
     main();
@@ -379,10 +382,33 @@ function doFinish() {
     gameDiv.style.backgroundImage = 'url(img/congratulation-page-1-01.svg)';
     setTimeout(doEndInfo, 3000);
 
-
 }
 
 function doEndInfo() {
     gameDiv.style.backgroundImage = '';
+    document.getElementById("kea-pages").style.opacity = 1;
+
+    document.getElementById("Keabtn").disabled = false;
+    document.getElementById("intBtn").disabled = false;
+    document.getElementById("bankBtn").disabled = false;
+
+    document.getElementById("Keabtn").addEventListener("click", newKeaTab);
+    document.getElementById("intBtn").addEventListener("click", newIntTab);
+    document.getElementById("bankBtn").addEventListener("click", newBankTab);
 }
+
+function newKeaTab() {
+            window.open(
+              "https://www.kea.dk", "_blank");
+        }
+
+function newIntTab() {
+            window.open(
+              "https://ihcph.kk.dk/", "_blank");
+        }
+
+function newBankTab() {
+            window.open(
+              "https://danskebank.dk/en/personal", "_blank");
+        }
 
