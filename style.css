@@ -185,6 +185,43 @@ h1{
     z-index: 0;
     font-family: helvetica;
 }
+#tutorial{
+    display: inline-block;
+    width: 700px;
+    height: 370px;
+    margin-left: 180px;
+    margin-top: 32px;
+    overflow-y:scroll;
+    position: fixed;
+    float:left;
+    z-index: 0;
+    font-family: helvetica;
+    text-align: center;
+}
+.startgame {
+	box-shadow: -8px 0px 27px -50px #3dc21b;
+	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+	background-color:#44c767;
+	border-radius:16px;
+	border:8px solid #11781b;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	font-weight:bold;
+	padding:18px 50px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #2f6627;
+}
+.startgame:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#5cbf2a;
+}
+.startgame:active {
+	position:relative;
+	top:1px;
+}
 
 #computerSelect{
     display: inline-block;
