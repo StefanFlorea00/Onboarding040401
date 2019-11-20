@@ -278,6 +278,9 @@ function changeBookText() {
         document.getElementById("booktextp4").style.opacity = 0;
 
     } else if (bookPages == 1) {
+         document.getElementById("prevArrow").style.opacity = 1;
+        document.getElementById("nextArrow").style.opacity = 0;
+
         document.getElementById("booktextp3").style.opacity = 1;
         document.getElementById("booktextp4").style.opacity = 1;
         document.getElementById("booktextp1").style.opacity = 0;
