@@ -42,6 +42,8 @@ function doIntro() {
     document.getElementById("booktextp1").style.opacity = 0;
     document.getElementById("booktextp2").style.opacity = 0;
     document.getElementById("laptoptext").style.opacity = 0;
+    document.getElementById("booktextp3").style.opacity = 0;
+    document.getElementById("booktextp4").style.opacity = 0;
 }
 
 charEu = document.getElementById("characterEu");
@@ -189,7 +191,7 @@ function glowItems() {
 let bookPages = 0;
 
 function doBook() {
-    console.log("Doing book, page " + bookPages );
+    console.log("Doing book, page " + bookPages);
     gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
     charEu.style.opacity = 0;
 
@@ -205,8 +207,8 @@ function doBook() {
     document.getElementById("prevArrow").addEventListener("click", pagePrev);
     document.getElementById("nextArrow").addEventListener("click", pageNext);
 
-        document.getElementById("booktextp1").style.opacity = 1;
-        document.getElementById("booktextp2").style.opacity = 1;
+    document.getElementById("booktextp1").style.opacity = 1;
+    document.getElementById("booktextp2").style.opacity = 1;
 
     outsideRoom = true;
 }
@@ -229,7 +231,7 @@ function pageNext() {
         console.log("Changed page, bgposX " + gameDiv.style.backgroundPositionX + " bookpage:" + bookPages);
 
     }, 1000);
-        bookPages++;
+    bookPages++;
     changeBookText();
 }
 
@@ -241,11 +243,21 @@ function changeBookText() {
 
         document.getElementById("booktextp1").style.opacity = 1;
         document.getElementById("booktextp2").style.opacity = 1;
-    } else {
-                console.log("Hide text");
+        document.getElementById("booktextp3").style.opacity = 0;
+        document.getElementById("booktextp4").style.opacity = 0;
 
-                document.getElementById("booktextp1").style.opacity = 0;
+    } else if (bookPages == 1) {
+        document.getElementById("booktextp3").style.opacity = 1;
+        document.getElementById("booktextp4").style.opacity = 1;
+        document.getElementById("booktextp1").style.opacity = 0;
         document.getElementById("booktextp2").style.opacity = 0;
+    } else {
+        console.log("Hide text");
+
+        document.getElementById("booktextp1").style.opacity = 0;
+        document.getElementById("booktextp2").style.opacity = 0;
+        document.getElementById("booktextp3").style.opacity = 0;
+        document.getElementById("booktextp4").style.opacity = 0;
     }
 }
 
