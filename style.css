@@ -12,7 +12,7 @@ h1{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 550px;
+    height: 0px;
     width: 1050px;
     max-height: 550px;
     max-width: 1050px;
@@ -52,6 +52,10 @@ h1{
     height: 550px;
     width: 1050px;
     opacity: 1;
+}
+
+#myName{
+    opacity: 0;
 }
 
 #myNameTxt{
@@ -130,7 +134,9 @@ h1{
     cursor:default;
     z-index: 0;
     font-family: helvetica;
-    font-size: 20px
+    font-size: 20px;
+    opacity: 0;
+
 
 }
 #booktextp2{
@@ -145,7 +151,8 @@ h1{
     cursor:default;
     z-index: 0;
      font-family: helvetica;
-    font-size: 20px
+    font-size: 20px;
+    opacity: 0;
 }
 #booktextp3{
     display: inline-block;
@@ -158,7 +165,8 @@ h1{
     float:left;
     z-index: 0;
      font-family: helvetica;
-    font-size: 20px
+    font-size: 20px;
+    opacity: 0;
 }
 #booktextp4{
     display: inline-block;
@@ -171,7 +179,8 @@ h1{
     float:left;
     z-index: 0;
      font-family: helvetica;
-    font-size: 20px
+    font-size: 20px;
+    opacity: 0;
 }
 #laptoptext{
     display: inline-block;
@@ -184,6 +193,7 @@ h1{
     float:left;
     z-index: 0;
     font-family: helvetica;
+    opacity: 0;
 
 }
 #tutorial{
@@ -253,6 +263,7 @@ h1{
 .badge{
     width: 60px;
     padding: 0px 10px;
+    opacity: 0;
 }
 
 #badgeDiv{
@@ -270,6 +281,7 @@ h1{
     position: fixed;
     z-index: 3;
     float:left;
+    opacity: 0;
 }
 
 #backArrow{

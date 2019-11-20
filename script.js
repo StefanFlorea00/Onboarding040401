@@ -1,4 +1,7 @@
 gameDiv = document.getElementById("gameDiv");
+startBtn = document.getElementById("startBtn");
+startBtn.addEventListener("click", reset);
+let gameState = "";
 
 //Main Game Loop
 function main() {
@@ -23,15 +26,21 @@ function main() {
 }
 
 function reset() {
-    gameState = "";
+    document.getElementById("tutorial").style.opacity =  0;
+    gameState = "intro";
+    main();
 }
 
 function doIntro() {
+
+    badgeDiv.style.opacity = 0;
     document.getElementById("myName").style.opacity = 0;
     console.log("Doing intro");
     gameDiv.style.animationName = "startGame";
     gameDiv.addEventListener("animationend", function () {
         gameDiv.style.animationName = "introAnim";
+        gameDiv.style.height = 550 + "px";
+        console.log("Gamediv height" + gameDiv.style.height);
         setTimeout(function(){
                     gameState = "room";
                     console.log("Anim Finished");
@@ -54,8 +63,13 @@ bookSelect = document.getElementById("bookSelect");
 computerSelect = document.getElementById("computerSelect");
 mapSelect = document.getElementById("mapSelect");
 
+badgeDiv = document.getElementById("badgeDiv");
+bookBadge = document.getElementById("bookBadge");
+laptopBadge = document.getElementById("laptopBadge");
+mapBadge = document.getElementById("mapBadge");
+
 function doAvatarSelect() {
-        document.getElementById("myName").style.opacity = 1;
+    document.getElementById("myName").style.opacity = 1;
     gameDiv.removeChild(bookSelect);
     gameDiv.removeChild(computerSelect);
     gameDiv.removeChild(mapSelect);
@@ -73,6 +87,9 @@ let outsideRoom = false;
 function doRoom() {
 
     if (!roomInit) {
+
+        badgeDiv.style.opacity = 1;
+
         gameDiv.removeChild(document.getElementById("myName"));
         gameDiv.removeChild(charNonEu);
         gameDiv.removeChild(charCustom);
@@ -100,6 +117,9 @@ function doRoom() {
 
         roomInit = true;
     } else {
+
+        badgeDiv.style.opacity = 1;
+
         console.log("Doing room");
         charEu.style.opacity = 1;
         gameDiv.style.backgroundImage = 'url(img/room-background-01.png)';
@@ -117,6 +137,12 @@ function doRoom() {
         document.getElementById("booktextp3").style.opacity = 0;
         document.getElementById("booktextp4").style.opacity = 0;
         document.getElementById("laptoptext").style.opacity = 0;
+
+        if(bookBadge.style.opacity == 1 && laptopBadge.style.opacity == 1 && mapBadge.style.opacity == 1 ) {
+            doFinish();
+
+
+        }
     }
 
 }
@@ -193,6 +219,9 @@ function glowItems() {
 let bookPages = 0;
 
 function doBook() {
+
+            badgeDiv.style.opacity = 0;
+    bookBadge.style.opacity = 1;
     console.log("Doing book, page " + bookPages);
     gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
     charEu.style.opacity = 0;
@@ -264,6 +293,9 @@ function changeBookText() {
 }
 
 function doComputer() {
+            badgeDiv.style.opacity = 0;
+    laptopBadge.style.opacity = 1;
+
     console.log("Doing computer");
     gameDiv.style.backgroundImage = 'url(img/laptop-3-01.svg)';
     charEu.style.opacity = 0;
@@ -285,6 +317,8 @@ function doComputer() {
 }
 
 function doMap() {
+            badgeDiv.style.opacity = 0;
+    mapBadge.style.opacity = 1;
     console.log("Doing map");
     gameDiv.style.backgroundImage = 'url(img/map.png)';
     charEu.style.opacity = 0;
@@ -301,6 +335,13 @@ function doMap() {
 }
 
 function doFinish() {
+    outsideRoom = true;
+    gameDiv.removeChild(bookSelect);
+    gameDiv.removeChild(mapSelect);
+    gameDiv.removeChild(computerSelect);
+    gameDiv.removeChild(badgeDiv);
+    gameDiv.removeChild(charEu);
+    gameDiv.style.backgroundImage = 'url(img/congratulation-page-1-01.svg)';
 
 }
 
@@ -308,8 +349,3 @@ function doEndInfo() {
 
 }
 
-
-let gameState = "intro";
-reset();
-gameState = "intro";
-main();
