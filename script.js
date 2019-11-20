@@ -114,6 +114,8 @@ function doRoom() {
 
         document.getElementById("booktextp1").style.opacity = 0;
         document.getElementById("booktextp2").style.opacity = 0;
+        document.getElementById("booktextp3").style.opacity = 0;
+        document.getElementById("booktextp4").style.opacity = 0;
         document.getElementById("laptoptext").style.opacity = 0;
     }
 
@@ -204,6 +206,9 @@ function doBook() {
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
+
+    document.getElementById("prevArrow").style.opacity = 1;
+    document.getElementById("nextArrow").style.opacity = 1;
     document.getElementById("prevArrow").addEventListener("click", pagePrev);
     document.getElementById("nextArrow").addEventListener("click", pageNext);
 
@@ -238,9 +243,6 @@ function pageNext() {
 function changeBookText() {
     if (bookPages == 0) {
         console.log("Show text");
-        document.getElementById("prevArrow").style.opacity = 1;
-        document.getElementById("nextArrow").style.opacity = 1;
-
         document.getElementById("booktextp1").style.opacity = 1;
         document.getElementById("booktextp2").style.opacity = 1;
         document.getElementById("booktextp3").style.opacity = 0;
@@ -270,6 +272,8 @@ function doComputer() {
 
     bookSelect.removeEventListener("click", doBook);
     bookSelect.style.boxShadow = '0 0 0 0 #ffff00';
+
+    document.getElementById("laptoptext").focus();
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0';
