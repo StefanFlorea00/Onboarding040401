@@ -1,6 +1,9 @@
+//Window for the game
 gameDiv = document.getElementById("gameDiv");
+
 startBtn = document.getElementById("startBtn");
 startBtn.addEventListener("click", reset);
+
 let gameState = "";
 
 //Main Game Loop
@@ -36,13 +39,15 @@ function doIntro() {
     badgeDiv.style.opacity = 0;
     document.getElementById("myName").style.opacity = 0;
     console.log("Doing intro");
+    //Make gameDiv big
     gameDiv.style.animationName = "startGame";
     gameDiv.addEventListener("animationend", function () {
+        //Show splash screen
         gameDiv.style.animationName = "introAnim";
         gameDiv.style.height = 550 + "px";
         console.log("Gamediv height" + gameDiv.style.height);
         setTimeout(function(){
-                    gameState = "room";
+            //Move to avatarselect
                     console.log("Anim Finished");
                     doAvatarSelect();
                              }, 3000);
@@ -59,10 +64,12 @@ charEu = document.getElementById("characterEu");
 charNonEu = document.getElementById("characterNonEu");
 charCustom = document.getElementById("characterCustom");
 
+//Divs for clicking on book;laptop;map
 bookSelect = document.getElementById("bookSelect");
 computerSelect = document.getElementById("computerSelect");
 mapSelect = document.getElementById("mapSelect");
 
+//Badges
 badgeDiv = document.getElementById("badgeDiv");
 bookBadge = document.getElementById("bookBadge");
 laptopBadge = document.getElementById("laptopBadge");
@@ -82,6 +89,8 @@ function doAvatarSelect() {
     gameDiv.style.backgroundColor = "#E8B466";
 }
 
+//roomInit: true if room has been initialized // outsideRoom: true if in book/laptop/map (so character doesn't move)
+//allbadges: true if collected all badges
 let roomInit = false;
 let outsideRoom = false;
 let allBadges = false;
@@ -113,6 +122,7 @@ function doRoom() {
         charEu.style.marginTop = 155 + "px";
         console.log("Doing room");
 
+        //Check for left/right arrow press
         charEu.addEventListener("keypress", function (event) {
             const key = event.key;
 
@@ -120,7 +130,9 @@ function doRoom() {
         })
 
         roomInit = true;
-    } else {
+    }
+     // if room has been initialized already
+    else{
 
         badgeDiv.style.opacity = 1;
 
@@ -142,6 +154,7 @@ function doRoom() {
         document.getElementById("booktextp4").style.opacity = 0;
         document.getElementById("laptoptext").style.opacity = 0;
 
+        //condition for winning
         if(bookBadge.style.opacity == 1 && laptopBadge.style.opacity == 1 && mapBadge.style.opacity == 1 ) {
             document.getElementById("finishArrow").style.opacity = 1;
             allBadges = true;
@@ -250,6 +263,7 @@ function doBook() {
     outsideRoom = true;
 }
 
+//when left arrow is pressed
 function pagePrev() {
     gameDiv.style.backgroundPositionX = -1050 + "px";
     setTimeout(function () {
@@ -261,6 +275,7 @@ function pagePrev() {
     changeBookText();
 }
 
+//when right arrow is pressed
 function pageNext() {
     gameDiv.style.backgroundPositionX = -1050 + "px";
     setTimeout(function () {
@@ -272,6 +287,7 @@ function pageNext() {
     changeBookText();
 }
 
+//change book text depending on page
 function changeBookText() {
     if (bookPages == 0) {
         document.getElementById("prevArrow").style.opacity = 0;
@@ -307,6 +323,7 @@ function changeBookText() {
     }
 }
 
+//computer menu
 function doComputer() {
             badgeDiv.style.opacity = 0;
     laptopBadge.style.opacity = 1;
@@ -323,7 +340,7 @@ function doComputer() {
     document.getElementById("laptoptext").focus();
 
     computerSelect.removeEventListener("click", doComputer);
-    computerSelect.style.boxShadow = '0 0 0 0';
+    computerSelect.style.boxShadow = '0 0 0 0 #ffff00';
 
     document.getElementById("laptoptext").style.opacity = 1;
 
@@ -331,6 +348,7 @@ function doComputer() {
 
 }
 
+//map menu
 function doMap() {
             badgeDiv.style.opacity = 0;
     mapBadge.style.opacity = 1;
@@ -349,6 +367,7 @@ function doMap() {
     outsideRoom = true;
 }
 
+//show congratulations
 function doFinish() {
     outsideRoom = true;
     gameDiv.removeChild(bookSelect);
