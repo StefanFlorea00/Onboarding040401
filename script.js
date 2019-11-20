@@ -27,12 +27,16 @@ function reset() {
 }
 
 function doIntro() {
+    document.getElementById("myName").style.opacity = 0;
     console.log("Doing intro");
-    gameDiv.style.animationName = "introAnim";
+    gameDiv.style.animationName = "startGame";
     gameDiv.addEventListener("animationend", function () {
-        gameState = "room";
-        console.log("Anim Finished");
-        doAvatarSelect();
+        gameDiv.style.animationName = "introAnim";
+        setTimeout(function(){
+                    gameState = "room";
+                    console.log("Anim Finished");
+                    doAvatarSelect();
+                             }, 3000);
     });
 
     document.getElementById("booktextp1").style.opacity = 0;
@@ -49,6 +53,7 @@ computerSelect = document.getElementById("computerSelect");
 mapSelect = document.getElementById("mapSelect");
 
 function doAvatarSelect() {
+        document.getElementById("myName").style.opacity = 1;
     gameDiv.removeChild(bookSelect);
     gameDiv.removeChild(computerSelect);
     gameDiv.removeChild(mapSelect);
