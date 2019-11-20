@@ -238,8 +238,10 @@ function pageNext() {
 function changeBookText() {
     if (bookPages == 0) {
         console.log("Show text");
-        document.getElementById("prevArrow").style.opacity = 1;
+        document.getElementById("prevArrow").style.opacity = 0;
         document.getElementById("nextArrow").style.opacity = 1;
+        document.getElementById("prevArrow").style.opacity = 1;
+        document.getElementById("nextArrow").style.opacity = 0;
 
         document.getElementById("booktextp1").style.opacity = 1;
         document.getElementById("booktextp2").style.opacity = 1;
