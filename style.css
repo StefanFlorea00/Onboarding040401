@@ -200,13 +200,14 @@ h1{
     display: inline-block;
     width: 700px;
     height: 370px;
-    margin-left: 180px;
+    margin-left: 25%;
+    margin-right: auto;
     margin-top: 32px;
-    overflow-y:scroll;
     position: fixed;
     float:left;
     z-index: 0;
     font-family: helvetica;
+    font-size: 24px;
     text-align: center;
 }
 .startgame {
@@ -224,6 +225,8 @@ h1{
 	padding:18px 50px;
 	text-decoration:none;
 	text-shadow:0px 0px 0px #2f6627;
+   margin-left: auto;
+    margin-right: auto;
 }
 .startgame:hover {
 	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
