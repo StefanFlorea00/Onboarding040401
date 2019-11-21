@@ -216,10 +216,11 @@ h1{
     font-size: 24px;
     text-align: center;
 }
+
 #tutorial2{
     display: inline-block;
-    width: 700px;
-    height: 370px;
+    width: 0px;
+    height: 0px;
     margin-left: 25%;
     margin-right: auto;
     margin-top: 32px;
@@ -229,6 +230,7 @@ h1{
     font-family: helvetica;
     font-size: 24px;
     text-align: center;
+    opacity: 0;
 }
 .startgame {
 	box-shadow: -8px 0px 27px -50px #3dc21b;

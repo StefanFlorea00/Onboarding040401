@@ -2,9 +2,22 @@
 gameDiv = document.getElementById("gameDiv");
 
 startBtn = document.getElementById("startBtn");
-startBtn.addEventListener("click", reset);
+startBtn.addEventListener("click", nextInfo);
+
+startBtn2 = document.getElementById("startBtn2");
+startBtn2.addEventListener("click", reset);
 
 let gameState = "";
+
+function nextInfo(){
+
+    document.getElementById("tutorial").style.opacity = 0;
+    document.getElementById("tutorial2").style.opacity = 1;
+    document.getElementById("tutorial2").style.width = 700 + "px";
+    document.getElementById("tutorial2").style.height = 370 + "px";
+}
+
+
 
 //Main Game Loop
 function main() {
@@ -33,6 +46,7 @@ function reset() {
     document.getElementById("intBtn").disabled = true;
     document.getElementById("bankBtn").disabled = true;
     document.getElementById("tutorial").style.opacity =  0;
+    document.getElementById("tutorial2").style.opacity =  0;
     gameState = "intro";
     main();
 }
