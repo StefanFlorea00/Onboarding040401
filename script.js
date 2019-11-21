@@ -157,6 +157,7 @@ function doRoom() {
         document.getElementById("booktextp4").style.opacity = 0;
         document.getElementById("laptoptext").style.opacity = 0;
 
+
         //condition for winning
         if(bookBadge.style.opacity == 1 && laptopBadge.style.opacity == 1 && mapBadge.style.opacity == 1 ) {
             document.getElementById("finishArrow").style.opacity = 1;
@@ -305,6 +306,8 @@ function changeBookText() {
         document.getElementById("booktextp3").style.opacity = 0;
         document.getElementById("booktextp4").style.opacity = 0;
 
+
+
     } else if (bookPages == 1) {
         document.getElementById("prevArrow").style.opacity = 1;
         document.getElementById("prevArrow").addEventListener("click",pagePrev);
@@ -323,6 +326,8 @@ function changeBookText() {
         document.getElementById("booktextp2").style.opacity = 0;
         document.getElementById("booktextp3").style.opacity = 0;
         document.getElementById("booktextp4").style.opacity = 0;
+
+
     }
 }
 
@@ -379,7 +384,7 @@ function doFinish() {
     gameDiv.removeChild(badgeDiv);
     gameDiv.removeChild(charEu);
     gameDiv.removeChild(document.getElementById("finishArrow"));
-    gameDiv.style.backgroundImage = 'url(img/congratulation-page-1-01.svg)';
+    gameDiv.style.backgroundImage = 'url(img/congratulation-page-2-01.svg)';
     setTimeout(doEndInfo, 3000);
 
 }
@@ -395,6 +400,7 @@ function doEndInfo() {
     document.getElementById("Keabtn").addEventListener("click", newKeaTab);
     document.getElementById("intBtn").addEventListener("click", newIntTab);
     document.getElementById("bankBtn").addEventListener("click", newBankTab);
+
 }
 
 function newKeaTab() {
@@ -404,11 +410,11 @@ function newKeaTab() {
 
 function newIntTab() {
             window.open(
-              "https://ihcph.kk.dk/", "_blank");
+              "https://kea.dk/en/programmes/", "_blank");
         }
 
 function newBankTab() {
             window.open(
-              "https://danskebank.dk/en/personal", "_blank");
+              "https://kea.dk/en/programmes/application-and-admission", "_blank");
         }
 
