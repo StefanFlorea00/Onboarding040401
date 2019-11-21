@@ -216,6 +216,20 @@ h1{
     font-size: 24px;
     text-align: center;
 }
+#tutorial2{
+    display: inline-block;
+    width: 700px;
+    height: 370px;
+    margin-left: 25%;
+    margin-right: auto;
+    margin-top: 32px;
+    position: fixed;
+    float:left;
+    z-index: 0;
+    font-family: helvetica;
+    font-size: 24px;
+    text-align: center;
+}
 .startgame {
 	box-shadow: -8px 0px 27px -50px #3dc21b;
 	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
