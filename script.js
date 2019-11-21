@@ -260,7 +260,7 @@ function doBook() {
 
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
-
+    document.getElementById("finishArrow").style.opacity = 0;
 
     bookSelect.removeEventListener("click", doBook);
     bookSelect.style.boxShadow = '0 0 0 0 #ffff00';
@@ -361,6 +361,7 @@ function doComputer() {
     document.getElementById("laptoptext").style.opacity = 1;
     document.getElementById("laptoptext").style.width = 700 + "px";
     document.getElementById("laptoptext").style.height = 370 + "px";
+    document.getElementById("finishArrow").style.opacity = 0;
 
 
     computerSelect.removeEventListener("click", doComputer);
@@ -380,6 +381,7 @@ function doMap() {
     charEu.style.opacity = 0;
     document.getElementById("backArrow").style.opacity = 1;
     document.getElementById("backArrow").addEventListener("click", doRoom);
+    document.getElementById("finishArrow").style.opacity = 1;
 
     bookSelect.removeEventListener("click", doBook);
     computerSelect.removeEventListener("click", doComputer);
