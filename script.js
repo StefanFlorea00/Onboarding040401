@@ -9,7 +9,7 @@ startBtn2.addEventListener("click", reset);
 
 let gameState = "";
 
-function nextInfo(){
+function nextInfo() {
 
     document.getElementById("tutorial").style.opacity = 0;
     document.getElementById("tutorial2").style.opacity = 1;
@@ -42,11 +42,11 @@ function main() {
 }
 
 function reset() {
-        document.getElementById("Keabtn").disabled = true;
+    document.getElementById("Keabtn").disabled = true;
     document.getElementById("intBtn").disabled = true;
     document.getElementById("bankBtn").disabled = true;
-    document.getElementById("tutorial").style.opacity =  0;
-    document.getElementById("tutorial2").style.opacity =  0;
+    document.getElementById("tutorial").style.opacity = 0;
+    document.getElementById("tutorial2").style.opacity = 0;
     gameState = "intro";
     main();
 }
@@ -63,11 +63,11 @@ function doIntro() {
         gameDiv.style.animationName = "introAnim";
         gameDiv.style.height = 550 + "px";
         console.log("Gamediv height" + gameDiv.style.height);
-        setTimeout(function(){
+        setTimeout(function () {
             //Move to avatarselect
-                    console.log("Anim Finished");
-                    doAvatarSelect();
-                             }, 3000);
+            console.log("Anim Finished");
+            doAvatarSelect();
+        }, 3000);
     });
 
     document.getElementById("booktextp1").style.opacity = 0;
@@ -93,8 +93,6 @@ laptopBadge = document.getElementById("laptopBadge");
 mapBadge = document.getElementById("mapBadge");
 
 function doAvatarSelect() {
-    gameDiv.removeChild(computerSelect);
-    gameDiv.removeChild(mapSelect);
     charEu.style.opacity = 1;
     charEu.addEventListener("click", doRoom);
 
@@ -146,8 +144,8 @@ function doRoom() {
 
         roomInit = true;
     }
-     // if room has been initialized already
-    else{
+    // if room has been initialized already
+    else {
 
         badgeDiv.style.opacity = 1;
 
@@ -168,10 +166,12 @@ function doRoom() {
         document.getElementById("booktextp3").style.opacity = 0;
         document.getElementById("booktextp4").style.opacity = 0;
         document.getElementById("laptoptext").style.opacity = 0;
+        document.getElementById("laptoptext").style.width = 0;
+        document.getElementById("laptoptext").style.height = 0;
 
 
         //condition for winning
-        if(bookBadge.style.opacity == 1 && laptopBadge.style.opacity == 1 && mapBadge.style.opacity == 1 ) {
+        if (bookBadge.style.opacity == 1 && laptopBadge.style.opacity == 1 && mapBadge.style.opacity == 1) {
             document.getElementById("finishArrow").style.opacity = 1;
             allBadges = true;
         }
@@ -214,7 +214,7 @@ function checkKey(e) {
                 charEu.style.marginLeft = posChange.toString() + "px";
                 console.log("press key right " + charEu.style.marginLeft);
 
-                if(allBadges && parseInt(charEu.style.marginLeft, 10) > 850){
+                if (allBadges && parseInt(charEu.style.marginLeft, 10) > 850) {
                     doFinish();
                 }
             }
@@ -252,7 +252,7 @@ let bookPages = 0;
 
 function doBook() {
 
-            badgeDiv.style.opacity = 0;
+    badgeDiv.style.opacity = 0;
     bookBadge.style.opacity = 1;
     console.log("Doing book, page " + bookPages);
     gameDiv.style.backgroundImage = 'url(img/sprite-book-01.svg)';
@@ -307,9 +307,9 @@ function pageNext() {
 function changeBookText() {
     if (bookPages == 0) {
         document.getElementById("prevArrow").style.opacity = 0;
-        document.getElementById("prevArrow").removeEventListener("click",pagePrev);
+        document.getElementById("prevArrow").removeEventListener("click", pagePrev);
         document.getElementById("nextArrow").style.opacity = 1;
-        document.getElementById("nextArrow").addEventListener("click",pageNext);
+        document.getElementById("nextArrow").addEventListener("click", pageNext);
 
 
         console.log("Show text");
@@ -322,9 +322,9 @@ function changeBookText() {
 
     } else if (bookPages == 1) {
         document.getElementById("prevArrow").style.opacity = 1;
-        document.getElementById("prevArrow").addEventListener("click",pagePrev);
+        document.getElementById("prevArrow").addEventListener("click", pagePrev);
         document.getElementById("nextArrow").style.opacity = 0;
-        document.getElementById("nextArrow").removeEventListener("click",pageNext);
+        document.getElementById("nextArrow").removeEventListener("click", pageNext);
 
 
         document.getElementById("booktextp3").style.opacity = 1;
@@ -345,7 +345,7 @@ function changeBookText() {
 
 //computer menu
 function doComputer() {
-            badgeDiv.style.opacity = 0;
+    badgeDiv.style.opacity = 0;
     laptopBadge.style.opacity = 1;
 
     console.log("Doing computer");
@@ -358,11 +358,14 @@ function doComputer() {
     bookSelect.style.boxShadow = '0 0 0 0 #ffff00';
 
     document.getElementById("laptoptext").focus();
+    document.getElementById("laptoptext").style.opacity = 1;
+    document.getElementById("laptoptext").style.width = 700 + "px";
+    document.getElementById("laptoptext").style.height = 370 + "px";
+
 
     computerSelect.removeEventListener("click", doComputer);
     computerSelect.style.boxShadow = '0 0 0 0 #ffff00';
 
-    document.getElementById("laptoptext").style.opacity = 1;
 
     outsideRoom = true;
 
@@ -370,7 +373,7 @@ function doComputer() {
 
 //map menu
 function doMap() {
-            badgeDiv.style.opacity = 0;
+    badgeDiv.style.opacity = 0;
     mapBadge.style.opacity = 1;
     console.log("Doing map");
     gameDiv.style.backgroundImage = 'url(img/map.png)';
@@ -408,6 +411,8 @@ function doEndInfo() {
     gameDiv.style.backgroundImage = '';
     document.getElementById("kea-pages").style.opacity = 1;
     document.getElementById("kea-page-text").style.opacity = 1;
+    document.getElementById("kea-page-text").style.width = 700 + "px";
+    document.getElementById("kea-page-text").style.height = 370 + "px";
 
     document.getElementById("Keabtn").disabled = false;
     document.getElementById("intBtn").disabled = false;
@@ -420,17 +425,16 @@ function doEndInfo() {
 }
 
 function newKeaTab() {
-            window.open(
-              "https://www.kea.dk", "_blank");
-        }
+    window.open(
+        "https://www.kea.dk", "_blank");
+}
 
 function newIntTab() {
-            window.open(
-              "https://kea.dk/en/programmes/", "_blank");
-        }
+    window.open(
+        "https://kea.dk/en/programmes/", "_blank");
+}
 
 function newBankTab() {
-            window.open(
-              "https://kea.dk/en/programmes/application-and-admission", "_blank");
-        }
-
+    window.open(
+        "https://kea.dk/en/programmes/application-and-admission", "_blank");
+}

@@ -190,14 +190,14 @@ h1{
 }
 #laptoptext{
     display: inline-block;
-    width: 700px;
-    height: 370px;
+    width: 0px;
+    height: 0px;
     margin-left: 180px;
     margin-top: 32px;
     overflow-y:scroll;
     position: fixed;
     float:left;
-    z-index: 0;
+    z-index: 100;
     font-family: helvetica;
     opacity: 0;
 
@@ -306,8 +306,8 @@ h1{
 #kea-page-text{
 
     display: inline-block;
-    width: 700px;
-    height: 370px;
+    width: 0px;
+    height: 0px;
     margin-top: 20px;
     margin-left: 174px;
     margin-right: 174px;
