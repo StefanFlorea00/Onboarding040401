@@ -79,8 +79,6 @@ laptopBadge = document.getElementById("laptopBadge");
 mapBadge = document.getElementById("mapBadge");
 
 function doAvatarSelect() {
-    document.getElementById("myName").style.opacity = 1;
-    gameDiv.removeChild(bookSelect);
     gameDiv.removeChild(computerSelect);
     gameDiv.removeChild(mapSelect);
     charEu.style.opacity = 1;
@@ -378,6 +376,9 @@ function doMap() {
 //show congratulations
 function doFinish() {
     outsideRoom = true;
+
+    const audio = new Audio('congratssound.mp3');
+    audio.play();
     gameDiv.removeChild(bookSelect);
     gameDiv.removeChild(mapSelect);
     gameDiv.removeChild(computerSelect);
@@ -392,6 +393,7 @@ function doFinish() {
 function doEndInfo() {
     gameDiv.style.backgroundImage = '';
     document.getElementById("kea-pages").style.opacity = 1;
+    document.getElementById("kea-page-text").style.opacity = 1;
 
     document.getElementById("Keabtn").disabled = false;
     document.getElementById("intBtn").disabled = false;

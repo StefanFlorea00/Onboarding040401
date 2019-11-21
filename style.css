@@ -301,6 +301,7 @@ h1{
     font-family: helvetica;
     font-size: 18px;
     text-align: center;
+    opacity: 0;
 }
 
 #computerSelect{
