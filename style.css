@@ -276,16 +276,31 @@ h1{
 	top:1px;
 }
 #Keabtn{
-    margin-top: 250px;
-    margin-left: 125px;
+    margin-top: 355px;
+    margin-left: 174px;
 }
 #intBtn{
-    margin-top: 250px;
-    margin-left: 364px;
+    margin-top: 355px;
+    margin-left: 398px;
 }
 #bankBtn{
-    margin-top: 250px;
+    margin-top: 355px;
     margin-left: 674px;
+}
+#kea-page-text{
+
+    display: inline-block;
+    width: 700px;
+    height: 370px;
+    margin-top: 20px;
+    margin-left: 174px;
+    margin-right: 174px;
+    position: fixed;
+    float:left;
+    z-index: 0;
+    font-family: helvetica;
+    font-size: 18px;
+    text-align: center;
 }
 
 #computerSelect{
